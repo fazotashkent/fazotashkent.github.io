@@ -8,7 +8,7 @@ index.html      — разметка, SEO, Open Graph; первый экран �
 styles.css      — стили (цвета — CSS-переменные в :root)
 main.js         — язык, статус «Открыто сейчас», карта, отзывы, «Поделиться», аналитика, schema.org
 config.js       — ВСЕ данные: тексты RU/UZ, ссылки, телефон, адрес, координаты, часы, отзывы, ID аналитики
-assets/         — обложка (AVIF/WebP/JPG, 480 и 960 px), og-image.jpg, favicon.svg, apple-touch-icon.png
+assets/         — обложка (AVIF/WebP/JPG, 780 и 1170 px — для экранов 2x и 3x), og-image.jpg, favicon.svg, apple-touch-icon.png
 assets/raw/     — исходники картинок
 ```
 
@@ -59,7 +59,7 @@ analytics: {
 ## Локальный просмотр
 
 ```bash
-cd fazo-taplink
+cd <папка сайта>
 npx serve .          # или: python3 -m http.server 8080
 ```
 
@@ -89,8 +89,8 @@ npx serve .          # или: python3 -m http.server 8080
 - для поддомена (`link.fazo.uz`) — CNAME на `<логин>.github.io`;
 - для корневого домена (`fazo.uz`) — четыре A-записи: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`.
 
-**После подключения домена** замените в `index.html` относительные пути в `og:image` и `twitter:image` на абсолютные (`https://ваш-домен/assets/og-image.jpg`) и добавьте `<meta property="og:url" content="https://ваш-домен/">` — так превью ссылки будет надёжно показываться в Telegram, Instagram и WhatsApp. Затем поставьте новую ссылку в шапку Instagram.
+**Адрес сайта** сейчас `https://fazotashkent.github.io/`. При смене домена замените его в `index.html` (`og:url`, `og:image`, `twitter:image`) и в `config.js` (`siteUrl`) — так превью ссылки будет надёжно показываться в Telegram, Instagram и WhatsApp. Затем поставьте новую ссылку в шапку Instagram.
 
 ## Картинки
 
-Обложка собрана из `assets/raw/cover.jpg` в AVIF/WebP/JPG шириной 480 и 960 px, `og-image.jpg` (1200×630) — из неё же, иконки — из `assets/raw/logo-white.png` на фоне #0A1530. Если меняете обложку — пересоберите файлы с теми же именами (например, в squoosh.app), квадратный кадр, логотип по центру.
+Обложка: фон — мрамор из `assets/raw/cover.jpg` (логотип с исходника убран, центр слегка затемнён), поверх по центру — `assets/raw/logo-white.png` шириной 62% кадра. Экспорт — квадрат 780 и 1170 px: AVIF (качество 60), WebP (82), JPG (85). `og-image.jpg` (1200×630, JPG 88) — тот же мрамор и логотип по центру. Иконки (`favicon.svg`, `apple-touch-icon.png`) — `logo-white.png` на фоне #0A1530. Если меняете обложку — пересоберите файлы с теми же именами.

@@ -49,11 +49,12 @@
     telegramCatalog: C.telegramCatalog,
     telegramManager: C.telegramManager,
     tel: "tel:+" + String(C.phone).replace(/\D/g, ""),
-    yandexMaps: "https://yandex.uz/maps/?pt=" + lng + "," + lat + "&z=17&l=map",
-    googleMaps: "https://www.google.com/maps/search/?api=1&query=" + lat + "," + lng,
+    yandexMaps: C.maps.yandex,
+    googleMaps: C.maps.google,
     reviews: C.rating.url
   };
-  var mapWidget = "https://yandex.uz/map-widget/v1/?ll=" + lng + "%2C" + lat + "&z=16&pt=" + lng + "%2C" + lat + "%2Cpm2rdm";
+  // Встроенная карта открывается с карточкой организации (ol=biz&oid=…), ll — центр карты
+  var mapWidget = "https://yandex.uz/map-widget/v1/?ll=" + lng + "%2C" + lat + "&z=16&ol=biz&oid=" + encodeURIComponent(C.maps.yandexOrgId);
 
   function applyLinks() {
     $$("[data-href]").forEach(function (el) {
@@ -309,8 +310,8 @@
       "@context": "https://schema.org",
       "@type": "Florist",
       name: C.seo.name,
-      url: shareUrl(),
-      image: new URL("assets/og-image.jpg", location.href).href,
+      url: C.siteUrl,
+      image: new URL("assets/og-image.jpg", C.siteUrl).href,
       telephone: "+" + String(C.phone).replace(/\D/g, ""),
       address: {
         "@type": "PostalAddress",
