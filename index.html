@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>FAZO — цветочный бутик в Ташкенте</title>
+  <meta name="description" content="FAZO — премиальный цветочный бутик в Ташкенте. Каталог букетов в Telegram, заказ у менеджера, доставка. Ежедневно 09:00–01:00.">
+  <meta name="theme-color" content="#0A1530">
+  <meta name="color-scheme" content="dark">
+
+  <!-- Open Graph / Twitter. TODO: после подключения домена сделайте og:url и og:image абсолютными (https://ваш-домен/...) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="FAZO">
+  <meta property="og:title" content="FAZO — цветочный бутик в Ташкенте">
+  <meta property="og:description" content="Премиальный цветочный бутик · Ташкент. Каталог букетов, заказ у менеджера, маршрут.">
+  <meta property="og:image" content="assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="FAZO — Flowers boutique &amp; More">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:locale:alternate" content="uz_UZ">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FAZO — цветочный бутик в Ташкенте">
+  <meta name="twitter:description" content="Премиальный цветочный бутик · Ташкент. Каталог букетов, заказ у менеджера, маршрут.">
+  <meta name="twitter:image" content="assets/og-image.jpg">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,500&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,500&amp;family=Manrope:wght@400;500;600;700&amp;display=swap"></noscript>
+
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add("js")</script>
+  <script src="config.js" defer></script>
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <!-- Иконки (stroke 1.6) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-grid" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="4" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5"/></g></symbol>
+      <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M9.5 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-telegram" viewBox="0 0 24 24"><path d="M20.6 4.2L3.4 10.9c-.8.3-.8 1.4 0 1.7l4.2 1.4 1.6 5.1c.2.7 1.1.9 1.6.4l2.4-2.3 4.4 3.2c.6.4 1.4.1 1.6-.6l2.8-14.3c.1-.9-.7-1.6-1.4-1.3zM7.6 14l9.6-6.2-7.3 7.4-.3 3.1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.6 3.5h2.6l1.5 4-2 1.3a11 11 0 005.5 5.5l1.3-2 4 1.5v2.6a2 2 0 01-2.2 2A16.5 16.5 0 014.6 5.7a2 2 0 012-2.2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0113 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></g></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></g></symbol>
+      <symbol id="i-map" viewBox="0 0 24 24"><path d="M9 4.5L3.5 6.5v13L9 17.5l6 2 5.5-2v-13L15 6.5l-6-2zM9 4.5v13M15 6.5v13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7.5 16.5l9-9M9 7.5h7.5V15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-share" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V4M8 7.5L12 3.5l4 4"/><path d="M8 10.5H6.5a1.5 1.5 0 00-1.5 1.5v6.5A1.5 1.5 0 006.5 20h11a1.5 1.5 0 001.5-1.5V12a1.5 1.5 0 00-1.5-1.5H16"/></g></symbol>
+      <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3.6l2.5 5.2 5.7.8-4.1 4 1 5.6L12 16.5l-5.1 2.7 1-5.6-4.1-4 5.7-.8z" fill="currentColor" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    </defs>
+  </svg>
+
+  <div class="page">
+    <header class="cover">
+      <picture>
+        <source type="image/avif" srcset="assets/cover-480.avif 480w, assets/cover-960.avif 960w" sizes="(max-width: 480px) 100vw, 480px">
+        <source type="image/webp" srcset="assets/cover-480.webp 480w, assets/cover-960.webp 960w" sizes="(max-width: 480px) 100vw, 480px">
+        <img class="cover__img" src="assets/cover-960.jpg" srcset="assets/cover-480.jpg 480w, assets/cover-960.jpg 960w" sizes="(max-width: 480px) 100vw, 480px" width="960" height="960" alt="FAZO" fetchpriority="high" decoding="async">
+      </picture>
+      <div class="lang" role="group" aria-label="Язык сайта" data-i18n-aria="langGroup">
+        <button type="button" class="lang__btn" data-lang="ru" aria-pressed="true" aria-label="RU — русский язык">RU</button>
+        <button type="button" class="lang__btn" data-lang="uz" aria-pressed="false" aria-label="UZ — o‘zbek tili">UZ</button>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <section class="intro reveal" style="--i:0">
+        <h1 class="sr-only">FAZO</h1>
+        <p class="tagline"><span class="tagline__line" aria-hidden="true"></span><span data-i18n="tagline">Flowers boutique &amp; More</span><span class="tagline__line" aria-hidden="true"></span></p>
+        <p class="subtitle" data-i18n="subtitle" data-i18n-sep>Премиальный цветочный бутик <span class="sep">·</span> Ташкент</p>
+        <p class="status" data-status hidden><span class="dot" aria-hidden="true"></span><span data-status-text></span></p>
+      </section>
+
+      <nav class="actions reveal" style="--i:1" aria-label="Заказ">
+        <a class="btn-main" href="https://t.me/fazotashkent" target="_blank" rel="noopener" data-href="telegramCatalog" data-track="catalog">
+          <span class="btn-main__icon"><svg width="22" height="22" aria-hidden="true"><use href="#i-grid"/></svg></span>
+          <span class="btn__text">
+            <span class="btn-main__title" data-i18n="catalogTitle">Каталог букетов</span>
+            <span class="btn-main__sub" data-i18n="catalogSub">Новинки каждый день</span>
+          </span>
+          <svg class="btn-main__chevron" width="22" height="22" aria-hidden="true"><use href="#i-chevron"/></svg>
+        </a>
+
+        <a class="btn" href="https://t.me/fazo_tashkent" target="_blank" rel="noopener" data-href="telegramManager" data-track="tg_manager">
+          <svg class="btn__icon" width="24" height="24" aria-hidden="true"><use href="#i-telegram"/></svg>
+          <span class="btn__text">
+            <span class="btn__title" data-i18n="managerTitle">Написать менеджеру</span>
+            <span class="btn__sub" data-i18n="managerSub">Заказ букета и консультация</span>
+          </span>
+          <svg class="btn__chevron" width="20" height="20" aria-hidden="true"><use href="#i-chevron"/></svg>
+        </a>
+
+        <a class="btn" href="tel:+998883555553" data-href="tel" data-track="call">
+          <svg class="btn__icon" width="24" height="24" aria-hidden="true"><use href="#i-phone"/></svg>
+          <span class="btn__text">
+            <span class="btn__title" data-i18n="callTitle">Позвонить</span>
+            <span class="btn__sub" data-phone>+998 88 355 55 53</span>
+          </span>
+          <svg class="btn__chevron" width="20" height="20" aria-hidden="true"><use href="#i-chevron"/></svg>
+        </a>
+      </nav>
+
+      <section class="card find reveal" style="--i:2" aria-labelledby="find-title">
+        <h2 class="h2" id="find-title" data-i18n="findTitle">Как нас найти</h2>
+
+        <div class="map" data-map>
+          <button type="button" class="map__btn" data-map-show data-track="map_show">
+            <svg width="20" height="20" aria-hidden="true"><use href="#i-map"/></svg>
+            <span data-i18n="mapShow">Показать карту</span>
+          </button>
+        </div>
+
+        <ul class="info">
+          <li class="info__row">
+            <svg class="info__icon" width="20" height="20" aria-hidden="true"><use href="#i-pin"/></svg>
+            <span data-i18n="address">Ташкент, Мирзо-Улугбекский р-н, ул. Махтумкули, 48</span>
+          </li>
+          <li class="info__row">
+            <svg class="info__icon" width="20" height="20" aria-hidden="true"><use href="#i-clock"/></svg>
+            <span data-i18n="hours">Ежедневно 09:00–01:00</span>
+            <span class="dot info__dot" data-status-dot aria-hidden="true" hidden></span>
+          </li>
+        </ul>
+
+        <div class="maps-links">
+          <a class="btn-outline" href="https://yandex.uz/maps/?pt=69.290481,41.308557&amp;z=17&amp;l=map" target="_blank" rel="noopener" data-href="yandexMaps" data-track="maps_yandex" data-i18n="mapsYandex">Яндекс Карты</a>
+          <a class="btn-outline" href="https://www.google.com/maps/search/?api=1&amp;query=41.308557,69.290481" target="_blank" rel="noopener" data-href="googleMaps" data-track="maps_google" data-i18n="mapsGoogle">Google Maps</a>
+        </div>
+      </section>
+
+      <section class="reviews reveal" style="--i:3" aria-labelledby="reviews-title">
+        <div class="reviews__head">
+          <div>
+            <h2 class="h2" id="reviews-title" data-i18n="reviewsTitle">Отзывы</h2>
+            <p class="reviews__count" data-reviews-count>108 оценок на Яндекс Картах</p>
+          </div>
+          <div class="score" role="img" aria-label="Рейтинг 5,0 из 5" data-score>
+            <span class="score__value" data-rating-value aria-hidden="true">5,0</span>
+            <span class="stars" aria-hidden="true"><svg width="14" height="14"><use href="#i-star"/></svg><svg width="14" height="14"><use href="#i-star"/></svg><svg width="14" height="14"><use href="#i-star"/></svg><svg width="14" height="14"><use href="#i-star"/></svg><svg width="14" height="14"><use href="#i-star"/></svg></span>
+          </div>
+        </div>
+
+        <ul class="reviews__track" data-reviews-track tabindex="0" aria-label="Отзывы клиентов" hidden></ul>
+
+        <a class="btn-outline btn-outline--wide" href="https://yandex.uz/maps/org/fazo_flowers_boutique_more/52980724132/reviews/" target="_blank" rel="noopener" data-href="reviews" data-track="reviews_all">
+          <span data-i18n="reviewsAll">Все отзывы на Яндекс Картах</span>
+          <svg width="18" height="18" aria-hidden="true"><use href="#i-arrow"/></svg>
+        </a>
+      </section>
+    </main>
+
+    <footer class="footer reveal" style="--i:4">
+      <button type="button" class="share" data-share data-track="share">
+        <svg width="18" height="18" aria-hidden="true"><use href="#i-share"/></svg>
+        <span data-i18n="share">Поделиться ссылкой</span>
+      </button>
+      <p class="copy">© FAZO, <span data-year>2026</span></p>
+    </footer>
+  </div>
+
+  <div class="toast" role="status" aria-live="polite" data-toast></div>
+</body>
+</html>
