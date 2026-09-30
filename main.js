@@ -280,7 +280,47 @@
     document.head.appendChild(s);
   }
 
+  // Кнопка (data-track) → стандартное / пользовательское событие Meta Pixel
+  var META_EVENTS = {
+    catalog:     ["track", "ViewContent", { content_name: "catalog" }],
+    tg_manager:  ["track", "Contact", { content_name: "telegram_manager" }],
+    call:        ["track", "Contact", { content_name: "call" }],
+    maps_yandex: ["track", "FindLocation", { content_name: "yandex_maps" }],
+    maps_google: ["track", "FindLocation", { content_name: "google_maps" }],
+    map_show:    ["trackCustom", "MapShow"],
+    reviews_all: ["trackCustom", "ReviewsOpen"],
+    share:       ["trackCustom", "Share"],
+    lang_ru:     ["trackCustom", "LanguageSwitch", { lang: "ru" }],
+    lang_uz:     ["trackCustom", "LanguageSwitch", { lang: "uz" }]
+  };
+
+  // Стандартный код Meta Pixel. Очередь fbq создаётся сразу (клики до загрузки
+  // библиотеки не теряются), а сам fbevents.js грузится после load, в простое браузера.
+  function initMetaPixel(id) {
+    if (window.fbq) return;
+    var fbq = window.fbq = function () {
+      if (fbq.callMethod) fbq.callMethod.apply(fbq, arguments);
+      else fbq.queue.push(arguments);
+    };
+    if (!window._fbq) window._fbq = fbq;
+    fbq.push = fbq;
+    fbq.loaded = true;
+    fbq.version = "2.0";
+    fbq.queue = [];
+    fbq("init", id);
+    fbq("track", "PageView");
+
+    var load = function () { loadScript("https://connect.facebook.net/en_US/fbevents.js"); };
+    var idle = function () {
+      if ("requestIdleCallback" in window) window.requestIdleCallback(load, { timeout: 3000 });
+      else setTimeout(load, 1);
+    };
+    if (document.readyState === "complete") idle();
+    else window.addEventListener("load", idle, { once: true });
+  }
+
   function initAnalytics() {
+    if (A.metaPixelId) initMetaPixel(A.metaPixelId);
     if (A.yandexMetrikaId) {
       window.ym = window.ym || function () { (window.ym.a = window.ym.a || []).push(arguments); };
       window.ym.l = Date.now();
@@ -300,6 +340,10 @@
     try {
       if (A.yandexMetrikaId && window.ym) window.ym(A.yandexMetrikaId, "reachGoal", name);
       if (A.ga4Id && window.gtag) window.gtag("event", name, { lang: lang });
+    } catch (e) { /* ignore */ }
+    try {
+      var meta = META_EVENTS[name];
+      if (A.metaPixelId && meta && typeof window.fbq === "function") window.fbq.apply(null, meta);
     } catch (e) { /* ignore */ }
   }
 

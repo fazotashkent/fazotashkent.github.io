@@ -59,7 +59,10 @@ window.FAZO_CONFIG = {
   // Аналитика: пустая строка — счётчик не подключается.
   analytics: {
     yandexMetrikaId: "",
-    ga4Id: ""
+    ga4Id: "",
+    // Meta Pixel (Facebook/Instagram). Пустая строка — пиксель не подключается;
+    // тогда удалите и блок <noscript> с facebook.com/tr в index.html.
+    metaPixelId: "1074223375240694"
   },
 
   // Данные для разметки schema.org (поисковики)

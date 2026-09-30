@@ -44,7 +44,8 @@ assets/raw/     — исходники картинок
 ```js
 analytics: {
   yandexMetrikaId: "12345678",   // номер счётчика Метрики
-  ga4Id: "G-XXXXXXXXXX"          // Measurement ID из GA4
+  ga4Id: "G-XXXXXXXXXX",         // Measurement ID из GA4
+  metaPixelId: "1074223375240694" // ID пикселя Meta (Facebook/Instagram)
 }
 ```
 
@@ -55,6 +56,29 @@ analytics: {
 `catalog`, `tg_manager`, `call`, `maps_yandex`, `maps_google`, `map_show`, `reviews_all`, `share`, `lang_ru`, `lang_uz`.
 
 **Google Analytics 4:** analytics.google.com → «Администратор» → «Потоки данных» → «Веб» → скопируйте идентификатор `G-…` в `ga4Id`. Те же события приходят в GA4 под этими же именами (Отчёты → Взаимодействие → События); нужные можно отметить как ключевые.
+
+**Meta Pixel** (реклама в Instagram/Facebook): ID пикселя — в `metaPixelId`. Пиксель отправляет `PageView` при открытии страницы, а сам скрипт `fbevents.js` грузится после загрузки страницы, в простое браузера — на скорость первого экрана он не влияет. Клики уходят в Meta одновременно с Метрикой и GA4 (та же функция `track` в `main.js`); если кликнуть до загрузки скрипта, событие ждёт в очереди и отправится, как только скрипт загрузится. Если пиксель заблокирован (AdBlock), кнопки работают как обычно.
+
+| Кнопка | Цель Метрики / событие GA4 | Событие Meta |
+|---|---|---|
+| Открытие страницы | — | `PageView` |
+| Каталог букетов | `catalog` | `ViewContent`, `content_name: catalog` |
+| Написать менеджеру | `tg_manager` | `Contact`, `content_name: telegram_manager` |
+| Позвонить | `call` | `Contact`, `content_name: call` |
+| Яндекс Карты | `maps_yandex` | `FindLocation`, `content_name: yandex_maps` |
+| Google Maps | `maps_google` | `FindLocation`, `content_name: google_maps` |
+| Показать карту | `map_show` | `MapShow` (пользовательское) |
+| Все отзывы на Яндекс Картах | `reviews_all` | `ReviewsOpen` (пользовательское) |
+| Поделиться ссылкой | `share` | `Share` (пользовательское) |
+| Переключение языка RU / UZ | `lang_ru` / `lang_uz` | `LanguageSwitch`, `lang: ru` / `uz` (пользовательское) |
+
+Проверить: Events Manager → источник данных пикселя → «Тестовые события», либо расширение Meta Pixel Helper для Chrome. Пользовательские события (`MapShow`, `ReviewsOpen`, `Share`, `LanguageSwitch`) для оптимизации рекламы заводятся в Events Manager как «Пользовательские конверсии».
+
+**Как отключить пиксель:**
+1. В `config.js` поставьте `metaPixelId: ""` — скрипт и все события Meta перестанут отправляться.
+2. В `index.html` удалите строку `<noscript><img … src="https://www.facebook.com/tr?id=…"></noscript>` сразу после `<body>` (она срабатывает только у посетителей с выключенным JavaScript).
+
+Чтобы сменить пиксель — замените ID в обоих местах.
 
 ## Локальный просмотр
 
